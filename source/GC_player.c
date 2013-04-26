@@ -13,3 +13,25 @@
  ********************************************************************************************/
 
 #include "GC_player.h"
+#include "displayNeu.h"
+
+extern int playerPositionX;
+
+void PL_drawPlayer(int x)
+{
+    DisplayFillArea(x, PL_POSITIONY, x+10, PL_POSITIONY+5);
+}
+
+void PL_moveLeft()
+{
+    playerPositionX--;
+    DisplayDrawLine(playerPositionX, PL_POSITIONY, playerPositionX, PL_POSITIONY+5)
+    DisplayClrLine(playerPositionX+PL_SYMBOLWIDTH, PL_POSITIONY,playerPositionX+PL_SYMBOLWIDTH, PL_POSITIONY+5)
+}
+
+void PL_moveRight()
+{
+    DisplayClrLine(playerPositionX, PL_POSITIONY, playerPositionX, PL_POSITIONY+5)
+    DisplayDrawLine(playerPositionX+PL_SYMBOLWIDTH, PL_POSITIONY,playerPositionX+PL_SYMBOLWIDTH, PL_POSITIONY+5)
+    playerPositionX++;
+}

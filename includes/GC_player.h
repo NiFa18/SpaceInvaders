@@ -12,8 +12,6 @@
 #ifndef _GC_player_h
 #define _GC_player_h
 
-#include "SI_defines.h"
-
 void PL_drawPlayer(int x);
 void PL_moveLeft();
 void PL_moveRight();
