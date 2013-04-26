@@ -26,7 +26,7 @@ void EN_drawEnemy(int x, int y)
 void EN_drawEnemyLine(int rowNr)
 {
     int n;          //Enemy #
-    int absYPos = 70 - (rowNr*(EN_SYMBOLHEIGHT+2*EN_GAPWIDTH/3));
+    int absYPos = 70 - (rowNr*(EN_SYMBOLHEIGHT+2*EN_GAPWIDTH/3));   //calculate absolute y position of enemy line
     
     for (n=0; n < 8; n++)
     {
@@ -37,9 +37,44 @@ void EN_drawEnemyLine(int rowNr)
     }
 }
 
-/*void EN_removeEnemy(int rowNr, int colNr)       //colNr 0-47
+void EN_removeEnemy(int rowNr, int colNr)       //colNr 0-47
 {
-    int absYPos = 70 + (rowPos*9);
-    DisplayClrRect(
+    int absYPos = 70 - (rowNr*(EN_SYMBOLHEIGHT+2*EN_GAPWIDTH/3));   //calculate absolute y position of enemy line
+    int absXPos = 8;                                                //if the enemy is to the very left
+    int i;
+    
+    if ( !(enemyArray[rowNr].enemyLocations[colNr]==0))             //deletes enemy part at shot impact (if there is one)
+    {
+        absXPos += SI_PPAE*colNr;        
+        DisplayClrArea(absXPos, absYPos, absXPos+2, absYPos+5);
+        enemyArray[rowNr].enemyLocations[colNr]=0;
+        
+        if ( !(enemyArray[rowNr].enemyLocations[colNr-1]==0))       //deletes enemy parts left of shot impact
+        {
+            DisplayClrArea(absXPos-SI_PPAE, absYPos, absXPos-SI_PPAE+2, absYPos+5);
+            enemyArray[rowNr].enemyLocations[colNr-1]=0;
+            
+            if ( !(enemyArray[rowNr].enemyLocations[colNr-2]==0))
+            {
+                DisplayClrArea(absXPos-2*SI_PPAE, absYPos, absXPos-2*SI_PPAE+2, absYPos+5);
+                enemyArray[rowNr].enemyLocations[colNr-2]=0;
+            }
+            
+        }
+
+        if ( !(enemyArray[rowNr].enemyLocations[colNr+1]==0))       //deletes enemy parts right of shot impact
+        {
+            DisplayClrArea(absXPos+SI_PPAE, absYPos, absXPos+SI_PPAE+2, absYPos+5);
+            enemyArray[rowNr].enemyLocations[colNr+1]=0;
+            
+            if ( !(enemyArray[rowNr].enemyLocations[colNr+2]==0))
+            {
+                DisplayClrArea(absXPos+2*SI_PPAE, absYPos, absXPos+2*SI_PPAE+2, absYPos+5);
+                enemyArray[rowNr].enemyLocations[colNr+2]=0;
+            }
+
+        }
+        
+    }
+
 }
-*/
