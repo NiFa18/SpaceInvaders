@@ -14,7 +14,7 @@
 
 #include "SI_defines.h"
 
-void SH_drawShot(int x);
+void SH_drawShot(SI_shot shot);
 void SH_moveShot(SI_shot shot);
 void SH_removeShot(SI_shot shot);
 

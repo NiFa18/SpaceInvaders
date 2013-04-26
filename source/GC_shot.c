@@ -13,3 +13,22 @@
  ********************************************************************************************/
 
 #include "GC_shot.h"
+#include "SI_defines.h"
+
+
+void SH_drawShot(SI_shot shot)
+{
+    DisplaySetPoint(shot.x, shot.y);
+    DisplaySetPoint(shot.x, shot.y+1);
+}
+
+void SH_moveShot(SI_shot shot)
+{
+    DisplayClrPoint(shot.x, shot.y);
+    DisplaySetPoint(shot.x, shot.y+2);
+}
+
+void SH_removeShot(SI_shot shot)
+{
+    DisplayClrPoint(shot.x, shot.y);
+}
