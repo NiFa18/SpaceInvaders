@@ -12,9 +12,6 @@
 #ifndef __SI_CONTROLS_H
 #define __SI_CONTROLS_H
 
-#include "Types.h"
-#include "SI_defines.h"
-
 // ---- function declarations
 
 void GC_shoot();        //generates a shot at the current player position
