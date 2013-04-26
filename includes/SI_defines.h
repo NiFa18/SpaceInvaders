@@ -24,6 +24,7 @@
 #define SI_ENEMYLINES       1
 #define SI_DISPWIDTH        160
 #define SI_DISPHEIGHT       80
+#define SI_PPAE             3       //PixelPerArrayEntry
 
 #define PL_FIELDWIDTH       152
 #define PL_SYMBOLWIDTH      11
