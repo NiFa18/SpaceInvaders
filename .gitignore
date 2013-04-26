@@ -15,3 +15,12 @@
 *.exe
 *.out
 *.app
+
+/components
+/Fotos
+/Project_SpaceInvador_Data
+*.bin
+*.S19
+*.xMAP
+*.lcf
+*.mcp
