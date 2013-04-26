@@ -23,7 +23,7 @@ void EN_drawEnemy(int x, int y)
     DisplayFillArea (x, y, x+8, y+5);
 }
 
-void EN_drawEnemyLine(int rowNr, int x)
+void EN_drawEnemyLine(int rowNr)
 {
     int n;          //Enemy #
     int absYPos = 70 - (rowNr*9);
@@ -33,7 +33,7 @@ void EN_drawEnemyLine(int rowNr, int x)
         enemyArray[rowNr].enemyLocations[6+5*n]=1;       //sets entries in enemy array according to horizontal enemy position
         enemyArray[rowNr].enemyLocations[7+5*n]=1;
         enemyArray[rowNr].enemyLocations[8+5*n]=1;        
-        EN_drawEnemy(x+n*15,absYPos);
+        EN_drawEnemy(EN_INITIALXPOSITION+n*15,absYPos);
     }
 }
 
