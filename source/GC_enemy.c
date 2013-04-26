@@ -26,14 +26,14 @@ void EN_drawEnemy(int x, int y)
 void EN_drawEnemyLine(int rowNr)
 {
     int n;          //Enemy #
-    int absYPos = 70 - (rowNr*9);
+    int absYPos = 70 - (rowNr*(EN_SYMBOLHEIGHT+2*EN_GAPWIDTH/3));
     
     for (n=0; n < 8; n++)
     {
         enemyArray[rowNr].enemyLocations[6+5*n]=1;       //sets entries in enemy array according to horizontal enemy position
         enemyArray[rowNr].enemyLocations[7+5*n]=1;
         enemyArray[rowNr].enemyLocations[8+5*n]=1;        
-        EN_drawEnemy(EN_INITIALXPOSITION+n*15,absYPos);
+        EN_drawEnemy(EN_INITIALXPOSITION+n*(EN_SYMBOLWIDTH+EN_GAPWIDTH),absYPos);
     }
 }
 

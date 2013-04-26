@@ -36,7 +36,10 @@ SI_enemyLine enemyArray[SI_ENEMYLINES];
 void main (void)
 {
 	DisplayInit();
-    EN_drawEnemyLine(0,EN_INITIALXPOSITION);
+    EN_drawEnemyLine(0);
+    EN_drawEnemyLine(1);
+    EN_drawEnemyLine(2);
+    EN_drawEnemyLine(3);
     DisplayDrawRect(4,4,155,9);
     DisplayDrawRect(8,12,151,75);
 }
