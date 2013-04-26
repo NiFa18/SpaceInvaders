@@ -53,12 +53,12 @@ void GC_initGame()
   
   //Initialize Player
   playerPositionX = SI_DISPWIDTH/2 - PL_SYMBOLWIDTH/2;
-  PL_drawPlayer(playerPositionX);
+  //PL_drawPlayer(playerPositionX);
   
   //initialize enemy Line
   for(i = SI_ENEMYLINES; i > 0; i--)
   {
-    for(j = EN_LOCATIONWIDTH; j > 0; i--)
+    for(j = EN_LOCATIONWIDTH; j > 0; j--)
       enemyArray[i-1].enemyLocations[j-1] = 0;
     //EN_drawEnemyLine(SI_ENEMYLINES-i);
   }
@@ -129,7 +129,7 @@ void GC_updateGame()
           }
         }
       }
-    }
+    }  
   }
 }
 
