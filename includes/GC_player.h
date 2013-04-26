@@ -14,7 +14,7 @@
 
 #include "SI_defines.h"
 
-void PL_drawPlayer(int x=(EN_FIELDWIDTH-EN_LINEWIDTH)/2);
+//void PL_drawPlayer(int x=(EN_FIELDWIDTH-EN_LINEWIDTH)/2);
 void PL_moveLeft();
 void PL_moveRight();
 
