@@ -12,6 +12,8 @@
 #ifndef _GC_shot_h
 #define _GC_shot_h
 
+#include "SI_defines.h"
+
 void SH_drawShot(int x);
 void SH_moveShot(SI_shot shot);
 void SH_removeShot(SI_shot shot);

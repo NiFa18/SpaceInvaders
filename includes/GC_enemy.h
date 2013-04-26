@@ -14,7 +14,7 @@
 
 #include "SI_defines.h"
 
-void EN_drawEnemyLine(int rowNr, int x=EN_INITIALXPOSITION);    //rowNr resembles row number from top down (0-3)
+void EN_drawEnemyLine(int rowNr);    //rowNr resembles row number from top down (0-3)
 void EN_removeEnemy(int rowNr, int colNr);    //colNr resembles column number from 0-47
 
 #endif

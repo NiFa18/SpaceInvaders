@@ -11,7 +11,6 @@
 ********************************************************************************************/
 #if 0
 
-
 #include "target.h"
 #include "SI_defines.h"
 #include "Types.h"
@@ -77,7 +76,7 @@ void main (void)
       	timerHandlerArray[1] = ST_Start(timerHandlerArray[1], 500); // 0.5s
       }
       printf("\n");
-      stateRegister.shoot &= 0x05;			//Bit von Schuss-Taste löschen
+      stateRegister.shoot &= 0x05;			//Bit von Schuss-Taste lï¿¶schen
     }
     
     if(stateRegister.move)
@@ -96,5 +95,5 @@ void main (void)
     }
  	}
 }
-
 #endif
+

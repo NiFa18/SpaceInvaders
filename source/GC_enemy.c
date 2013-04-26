@@ -20,20 +20,20 @@ extern SI_enemyLine enemyArray[SI_ENEMYLINES];
 
 void EN_drawEnemy(int x, int y)
 {
-    DisplayDrawRect (x, y, x+5, y+8);
+    DisplayFillArea (x, y, x+8, y+5);
 }
 
-void EN_drawEnemyLine(int rowNr, int x)
+void EN_drawEnemyLine(int rowNr)
 {
     int n;          //Enemy #
-    int absYPos = 70 - (rowPos*9);
+    int absYPos = 70 - (rowNr*(EN_SYMBOLHEIGHT+2*EN_GAPWIDTH/3));
     
     for (n=0; n < 8; n++)
     {
-        enemyArray[10+4*n]=1;       //sets entries in enemy array according to horizontal enemy position
-        enemyArray[11+4*n]=1;
-        enemyArray[12+4*n]=1;        
-        EN_drawEnemy(x+n*11,absYPos);
+        enemyArray[rowNr].enemyLocations[6+5*n]=1;       //sets entries in enemy array according to horizontal enemy position
+        enemyArray[rowNr].enemyLocations[7+5*n]=1;
+        enemyArray[rowNr].enemyLocations[8+5*n]=1;        
+        EN_drawEnemy(EN_INITIALXPOSITION+n*(EN_SYMBOLWIDTH+EN_GAPWIDTH),absYPos);
     }
 }
 
