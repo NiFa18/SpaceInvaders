@@ -30,10 +30,10 @@ void EN_drawEnemyLine(int rowNr, int x)
     
     for (n=0; n < 8; n++)
     {
-        enemyArray[rowNr].enemyLocations[10+4*n]=1;       //sets entries in enemy array according to horizontal enemy position
-        enemyArray[rowNr].enemyLocations[11+4*n]=1;
-        enemyArray[rowNr].enemyLocations[12+4*n]=1;        
-        EN_drawEnemy(x+n*11,absYPos);
+        enemyArray[rowNr].enemyLocations[6+5*n]=1;       //sets entries in enemy array according to horizontal enemy position
+        enemyArray[rowNr].enemyLocations[7+5*n]=1;
+        enemyArray[rowNr].enemyLocations[8+5*n]=1;        
+        EN_drawEnemy(x+n*15,absYPos);
     }
 }
 

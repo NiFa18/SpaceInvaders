@@ -18,6 +18,8 @@
 #include "displayNeu.h"
 #include "SoftTimer.h"
 #include "GC_enemy.h"
+#include "stdio.h"
+
 
 // Global Variables
 
@@ -35,6 +37,8 @@ void main (void)
 {
 	DisplayInit();
     EN_drawEnemyLine(0,EN_INITIALXPOSITION);
+    DisplayDrawRect(4,4,155,9);
+    DisplayDrawRect(8,12,151,75);
 }
 #endif
 

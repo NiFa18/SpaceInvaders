@@ -34,11 +34,11 @@
 #define EN_SIDEBORDER       (SI_DISPWIDTH-EN_FIELDWIDTH)/2
 #define EN_SYMBOLWIDTH      9
 #define EN_SYMBOLHEIGHT     6
-#define EN_GAPWIDTH         3
+#define EN_GAPWIDTH         6
 #define EN_LINEWIDTH        8*EN_SYMBOLWIDTH+7*EN_GAPWIDTH //93
 #define EN_LOCATIONWIDTH    48
 #define EN_TOPPOS           75
-#define EN_INITIALXPOSITION 34
+#define EN_INITIALXPOSITION 23
 
 #define SH_WIDTH            1
 #define SH_HEIGHT           2
