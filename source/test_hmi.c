@@ -9,6 +9,9 @@
   
   Beschreibung: Test der Bedienung mit Taste und Drehschalter zu SpaceInvadors
 ********************************************************************************************/
+#if 0
+
+
 #include "target.h"
 #include "SI_defines.h"
 #include "Types.h"
@@ -94,4 +97,4 @@ void main (void)
  	}
 }
 
-
+#endif

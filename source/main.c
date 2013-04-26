@@ -6,7 +6,7 @@
   Date        : 17.04.2013
   Last Update : 22.04.2013 Christian Gwerder
  
-  ChangeLog   : Erste Funktionialität erstellt (Timer, Tastendrucke), CG, 22.04.13
+  ChangeLog   : Erste Funktionialitaet erstellt (Timer, Tastendrucke), CG, 22.04.13
                 Datei erstellt, CG, 17.04.13
  
   Target      : MEGA332, MetroTRK and CodeWarrior
@@ -46,7 +46,7 @@ void main (void)
   // Spiel aktualisieren
   timerHandlerArray[0] = ST_Create(INTERVAL, GC_updateGame);
   timerHandlerArray[0] = ST_Start(timerHandlerArray[0], SI_REFRESHTIME);
-  // Timer für Schuss-Verzögerung
+  // Timer fuer Schuss-Verzoegerung
   timerHandlerArray[1] = ST_Create(ONESHOT, GC_clrWeaponDelay);
   
   

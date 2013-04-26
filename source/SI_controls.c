@@ -9,9 +9,9 @@
  ChangeLog   : Datei erstellt, FN, 20.04.13
                Funktion GC_clrWeaponDelay() ergänzt, CG, 22.04.13
                Header für jede Funktion ergänzt, CG, 22.04.13
-               GC_initGame(), GC_shot() in erster Version implementiert, CG, 25.04.13
                GC_updateGame() in erster Version implementiert, CG, 26.04.13
-               
+               GC_initGame(), GC_shoot(), GC_movePlayer() in erster Version implementiert, CG, 25.04.13
+               GC_initGame() & GC_shoot() & ,GC_movePlayer() getestet CG, 26.04.13
 
  Target      : MEGA332, MetroTRK and CodeWarrior
  
@@ -28,7 +28,7 @@
 
 extern SI_stateReg stateRegister;
 extern int playerPositionX;
-extern SI_shot shotArray[];
+extern SI_shot shotArray[SI_MAXSHOTS];
 extern SI_enemyLine enemyArray[SI_ENEMYLINES];
 
 /***************************************************************************
@@ -47,12 +47,13 @@ void GC_initGame()
   //Initialize ShotArray
   for(i = SI_MAXSHOTS; i > 0 ; i--)
   {
-    shotArray[i].x = 0;
-    shotArray[i].y = 0;
+    shotArray[i-1].x = 0;
+    shotArray[i-1].y = 0;
   }
   
   //Initialize Player
   playerPositionX = SI_DISPWIDTH/2 - PL_SYMBOLWIDTH/2;
+  printf("playerPositionX = %d\n",playerPositionX);
   //PL_drawPlayer(playerPositionX);
   
   //initialize enemy Line
@@ -61,9 +62,9 @@ void GC_initGame()
     for(j = EN_LOCATIONWIDTH; j > 0; j--)
       enemyArray[i-1].enemyLocations[j-1] = 0;
     //EN_drawEnemyLine(SI_ENEMYLINES-i);
-  }
-    
+  }  
   
+  printf("GC_initGame(): Done\n");
 }
 
 /***************************************************************************
@@ -74,16 +75,20 @@ void GC_shoot()
 {
   int i;
   
-  for(i = SI_MAXSHOTS; i > 0; i--)
+  for(i = SI_MAXSHOTS-1; i >= 0; i--)
   {
-    if((shotArray[i].x != 0)||(shotArray[i].y != 0))
+    if((shotArray[i].x == 0)&&(shotArray[i].y == 0))
     {
+      //Schuss in Mitte am oberen Ende des Players zeichnen
       shotArray[i].x = playerPositionX + PL_SYMBOLWIDTH/2 + 1;
       shotArray[i].y = PL_POSITIONY + PL_SYMBOLHEIGHT - 1;
       //SH_drawShot(shotArray[i]);
+      printf("SH_drawShot(shotArray[%d].x = %d, shotArray[%d].y = %d\n", i, shotArray[i].x, i, shotArray[i].y);
       break;
     }
   }
+  
+  printf("GC_shoot(): Done\n");
 }
 
 /***************************************************************************
@@ -97,7 +102,7 @@ void GC_movePlayer()
   	printf("Move Player Left\n");
   else if(stateRegister.move & SI_MOVE_RIGHT)
     //PL_moveRight();
-    printf("Move Player Left\n");
+    printf("Move Player Right\n");
 }
 
 /***************************************************************************
@@ -107,30 +112,37 @@ void GC_movePlayer()
 void GC_updateGame()
 {
   int i, j;
-  //Precess each shot up
+  //Process each shot
   for(i = SI_MAXSHOTS; i > 0; i--)
   {
     if((shotArray[i].x != 0)||(shotArray[i].y != 0))
     {
-       //Move all shot up
+      //Move all shot up
       //SH_moveShot(shotArray[i]);
+      printf("SH_moveShot(shotArray[%d].x = %d, shotArray[%d].y = %d) up\n", i, shotArray[i].x, i, shotArray[i].y);
       
       //Check if Shot hits enemy & destroy enemy
+      printf("Has Shot reached %d?\n", EN_TOPPOS - SI_ENEMYLINES*EN_SYMBOLHEIGHT-(SI_ENEMYLINES-1)*EN_GAPWIDTH);
       if(shotArray[i].y >= EN_TOPPOS - SI_ENEMYLINES*EN_SYMBOLHEIGHT-(SI_ENEMYLINES-1)*EN_GAPWIDTH)
       {
         for(j = 0; j < SI_ENEMYLINES; j--)
         {
-          // Has Shot reached the enemyline ?
+          // Has Shot reached the enemyline j?
           if(shotArray[i].y >= EN_TOPPOS - (j+1)*EN_SYMBOLHEIGHT-j*EN_GAPWIDTH)
           {
             if(enemyArray[j].enemyLocations[(shotArray[i].x-EN_SIDEBORDER)/EN_GAPWIDTH] == 1)
+            { 
               //EN_removeEnemy(j, (shotArray[i].x-EN_SIDEBORDER)/EN_GAPWIDTH);
+              //SH_removeShot(shotArray[i]);
+            }
             break;
           }
         }
       }
     }  
   }
+  
+  printf("GC_updateGame(): Done\n");
 }
 
 /***************************************************************************
