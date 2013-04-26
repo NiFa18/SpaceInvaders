@@ -13,15 +13,27 @@
  ********************************************************************************************/
 
 #include "GC_player.h"
+
+#include "SI_defines.h"
 #include "displayNeu.h"
+
+//global variables
 
 extern int playerPositionX;
 
+/***************************************************************************
+ *   \brief draws player at position x
+ *   \return void
+ ***************************************************************************/
 void PL_drawPlayer(int x)
 {
     DisplayFillArea(x, PL_POSITIONY, x+10, PL_POSITIONY+5);
 }
 
+/***************************************************************************
+ *   \brief moves player 1px to the left
+ *   \return void
+ ***************************************************************************/
 void PL_moveLeft()
 {
     playerPositionX--;
@@ -29,6 +41,10 @@ void PL_moveLeft()
     DisplayClrLine(playerPositionX+PL_SYMBOLWIDTH, PL_POSITIONY,playerPositionX+PL_SYMBOLWIDTH, PL_POSITIONY+5)
 }
 
+/***************************************************************************
+ *   \brief moves player 1px to the right
+ *   \return void
+ ***************************************************************************/
 void PL_moveRight()
 {
     DisplayClrLine(playerPositionX, PL_POSITIONY, playerPositionX, PL_POSITIONY+5)
