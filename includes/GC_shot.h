@@ -16,8 +16,8 @@
 
 // ---- function declarations
 
-void SH_drawShot(SI_shot shot);
-void SH_moveShot(SI_shot shot);
-void SH_removeShot(SI_shot shot);
+void SH_drawShot(int shotNr);
+void SH_moveShot(int shotNr);
+void SH_removeShot(int shotNr);
 
 #endif

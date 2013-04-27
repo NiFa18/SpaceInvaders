@@ -17,31 +17,35 @@
 #include "SI_defines.h"
 #include "displayNeu.h"
 
+// Global Variables
+extern SI_shot shotArray[SI_MAXSHOTS];
+
 /***************************************************************************
  *   \brief draws shot according to shot position
  *   \return void
  ***************************************************************************/
-void SH_drawShot(SI_shot shot)
+void SH_drawShot(int shotNr)
 {
-    DisplaySetPoint(shot.x, shot.y);
-    DisplaySetPoint(shot.x, shot.y+1);
+    DisplaySetPoint(shotArray[shotNr].x, shotArray[shotNr].y);
+    DisplaySetPoint(shotArray[shotNr].x, shotArray[shotNr].y+1);
 }
 
 /***************************************************************************
  *   \brief moves shot according to shot position
  *   \return void
  ***************************************************************************/
-void SH_moveShot(SI_shot shot)
+void SH_moveShot(int shotNr)
 {
-    DisplayClrPoint(shot.x, shot.y);
-    DisplaySetPoint(shot.x, shot.y+2);
+    DisplayClrPoint(shotArray[shotNr].x, shotArray[shotNr].y);
+    DisplaySetPoint(shotArray[shotNr].x, shotArray[shotNr].y+2);
+    shotArray[shotNr].y += 1;
 }
 
 /***************************************************************************
  *   \brief removes shot according to shot position
  *   \return void
  ***************************************************************************/
-void SH_removeShot(SI_shot shot)
+void SH_removeShot(int shotNr)
 {
-    DisplayClrPoint(shot.x, shot.y);
+    DisplayClrPoint(shotArray[shotNr].x, shotArray[shotNr].y);
 }
