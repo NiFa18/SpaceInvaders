@@ -27,7 +27,16 @@ extern SI_enemyLine enemyArray[SI_ENEMYLINES];
  ***************************************************************************/
 void EN_drawEnemy(int x, int y)
 {
-    DisplayFillArea (x, y, x+8, y+5);
+    DisplayFillArea(x, y, x+8, y+5);
+    DisplayClrPoint(x, y+4);
+    DisplayClrPoint(x+2, y+3);
+    DisplayClrPoint(x+4, y+1);
+    DisplayClrPoint(x+8, y+4);
+    DisplayClrLine(x, y+1, x+1, y+1);
+    DisplayClrLine(x, y+5, x+2, y+5);
+    DisplayClrLine(x+2, y, x+6, y);
+    DisplayClrLine(x+6, y+5, x+8, y+5);
+    DisplayClrLine(x+7, y+1, x+8, y+1);
 }
 
 /***************************************************************************
