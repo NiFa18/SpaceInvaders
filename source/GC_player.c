@@ -28,6 +28,12 @@ extern int playerPositionX;
 void PL_drawPlayer(int x)
 {
     DisplayFillArea(x, PL_POSITIONY, x+10, PL_POSITIONY+5);
+    DisplayClrArea(x, PL_POSITIONY+4, x+3, PL_POSITIONY+5);
+    DisplayClrArea(x+7, PL_POSITIONY+4, x+10, PL_POSITIONY+5);
+    DisplayClrPoint(x, PL_POSITIONY+3);
+    DisplayClrPoint(x+4, PL_POSITIONY+5);
+    DisplayClrPoint(x+6, PL_POSITIONY+5);
+    DisplayClrPoint(x+10, PL_POSITIONY+3);
 }
 
 /***************************************************************************
@@ -37,8 +43,14 @@ void PL_drawPlayer(int x)
 void PL_moveLeft()
 {
     playerPositionX--;
-    DisplayDrawLine(playerPositionX, PL_POSITIONY, playerPositionX, PL_POSITIONY+5)
-    DisplayClrLine(playerPositionX+PL_SYMBOLWIDTH, PL_POSITIONY,playerPositionX+PL_SYMBOLWIDTH, PL_POSITIONY+5)
+    DisplayClrLine(playerPositionX+11, PL_POSITIONY, playerPositionX+10, PL_POSITIONY+2);
+    DisplayClrPoint(playerPositionX+10, PL_POSITIONY+3);
+    DisplayClrPoint(playerPositionX+7, PL_POSITIONY+4);
+    DisplayClrPoint(playerPositionX+6, PL_POSITIONY+5);
+    DisplaySetPoint(playerPositionX+5, PL_POSITIONY+5);
+    DisplaySetPoint(playerPositionX+4, PL_POSITIONY+4);
+    DisplaySetPoint(playerPositionX+1, PL_POSITIONY+3);
+    DisplayDrawLine(playerPositionX, PL_POSITIONY, playerPositionX, PL_POSITIONY+2);
 }
 
 /***************************************************************************
@@ -47,7 +59,13 @@ void PL_moveLeft()
  ***************************************************************************/
 void PL_moveRight()
 {
-    DisplayClrLine(playerPositionX, PL_POSITIONY, playerPositionX, PL_POSITIONY+5)
-    DisplayDrawLine(playerPositionX+PL_SYMBOLWIDTH, PL_POSITIONY,playerPositionX+PL_SYMBOLWIDTH, PL_POSITIONY+5)
+    DisplayClrLine(playerPositionX, PL_POSITIONY, playerPositionX, PL_POSITIONY+2);
+    DisplayClrPoint(playerPositionX+1, PL_POSITIONY+3);
+    DisplayClrPoint(playerPositionX+4, PL_POSITIONY+4);
+    DisplayClrPoint(playerPositionX+5, PL_POSITIONY+5);
+    DisplaySetPoint(playerPositionX+6, PL_POSITIONY+5);
+    DisplaySetPoint(playerPositionX+7, PL_POSITIONY+4);
+    DisplaySetPoint(playerPositionX+10, PL_POSITIONY+3);
+    DisplayDrawLine(playerPositionX+11, PL_POSITIONY, playerPositionX+10, PL_POSITIONY+2);
     playerPositionX++;
 }
