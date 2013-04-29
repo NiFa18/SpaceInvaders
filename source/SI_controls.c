@@ -23,6 +23,9 @@
 #include "target.h"
 #include "Types.h"
 #include "SI_defines.h"
+#include "GC_player.h"
+#include "GC_shot.h"
+#include "GC_enemy.h"
 
 // Global Variables
 
@@ -54,14 +57,14 @@ void GC_initGame()
   //Initialize Player
   playerPositionX = SI_DISPWIDTH/2 - PL_SYMBOLWIDTH/2;
   printf("playerPositionX = %d\n",playerPositionX);
-  //PL_drawPlayer(playerPositionX);
+  PL_drawPlayer(playerPositionX);
   
   //initialize enemy Line
   for(i = SI_ENEMYLINES; i > 0; i--)
   {
     for(j = EN_LOCATIONWIDTH; j > 0; j--)
       enemyArray[i-1].enemyLocations[j-1] = 0;
-    //EN_drawEnemyLine(SI_ENEMYLINES-i);
+    EN_drawEnemyLine(SI_ENEMYLINES-i);
   }  
   
   printf("GC_initGame(): Done\n");
@@ -82,7 +85,7 @@ void GC_shoot()
       //Schuss in Mitte am oberen Ende des Players zeichnen
       shotArray[i].x = playerPositionX + PL_SYMBOLWIDTH/2 + 1;
       shotArray[i].y = PL_POSITIONY + PL_SYMBOLHEIGHT - 1;
-      //SH_drawShot(i);
+      SH_drawShot(i);
       printf("SH_drawShot(shotArray[%d].x = %d, shotArray[%d].y = %d\n", i, shotArray[i].x, i, shotArray[i].y);
       break;
     }
@@ -98,10 +101,10 @@ void GC_shoot()
 void GC_movePlayer()
 {
   if(stateRegister.move & SI_MOVE_LEFT)
-    //PL_moveLeft();
+    PL_moveLeft();
   	printf("Move Player Left\n");
   else if(stateRegister.move & SI_MOVE_RIGHT)
-    //PL_moveRight();
+    PL_moveRight();
     printf("Move Player Right\n");
 }
 
@@ -118,22 +121,22 @@ void GC_updateGame()
     if((shotArray[i].x != 0)||(shotArray[i].y != 0))
     {
       //Move all shot up
-      //SH_moveShot(shotArray[i]);
+      SH_moveShot(i);
       printf("SH_moveShot(shotArray[%d].x = %d, shotArray[%d].y = %d) up\n", i, shotArray[i].x, i, shotArray[i].y);
       
       //Check if Shot hits enemy & destroy enemy
-      printf("Has Shot reached %d?\n", EN_TOPPOS - SI_ENEMYLINES*EN_SYMBOLHEIGHT-(SI_ENEMYLINES-1)*EN_GAPWIDTH);
-      if(shotArray[i].y >= EN_TOPPOS - SI_ENEMYLINES*EN_SYMBOLHEIGHT-(SI_ENEMYLINES-1)*EN_GAPWIDTH)
+      printf("Has Shot reached %d?\n", EN_TOPPOS - SI_ENEMYLINES*EN_SYMBOLHEIGHT-(SI_ENEMYLINES-1)*EN_GAPHEIGHT);
+      if(shotArray[i].y >= EN_TOPPOS - SI_ENEMYLINES*EN_SYMBOLHEIGHT-(SI_ENEMYLINES-1)*EN_GAPHEIGHT)
       {
         for(j = 0; j < SI_ENEMYLINES; j--)
         {
           // Has Shot reached the enemyline j?
-          if(shotArray[i].y >= EN_TOPPOS - (j+1)*EN_SYMBOLHEIGHT-j*EN_GAPWIDTH)
+          if(shotArray[i].y >= EN_TOPPOS - (j+1)*EN_SYMBOLHEIGHT-j*EN_GAPHEIGHT)
           {
             if(enemyArray[j].enemyLocations[(shotArray[i].x-EN_SIDEBORDER)/EN_GAPWIDTH] == 1)
             { 
-              //EN_removeEnemy(j, (shotArray[i].x-EN_SIDEBORDER)/EN_GAPWIDTH);
-              //SH_removeShot(shotArray[i]);
+              EN_removeEnemy(j, (shotArray[i].x-EN_SIDEBORDER)/EN_GAPWIDTH);
+              SH_removeShot(i);
             }
             break;
           }
