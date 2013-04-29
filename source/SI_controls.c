@@ -18,10 +18,12 @@
  Beschreibung: Defenition of game control functions
  ********************************************************************************************/
 
-#include "SI_controls.h"
 
 #include "target.h"
+#include "displayNeu.h"
+
 #include "Types.h"
+#include "SI_controls.h"
 #include "SI_defines.h"
 #include "GC_player.h"
 #include "GC_shot.h"
@@ -41,6 +43,9 @@ extern SI_enemyLine enemyArray[SI_ENEMYLINES];
 void GC_initGame()
 {
   int i,j;
+  
+  // Initialize Display
+  DisplayInit();
   
   // Initialize StateRegister
   stateRegister.restart = 0;
