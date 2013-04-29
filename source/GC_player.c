@@ -50,7 +50,7 @@ void PL_moveLeft()
     DisplaySetPoint(playerPositionX+5, PL_POSITIONY+5);
     DisplaySetPoint(playerPositionX+4, PL_POSITIONY+4);
     DisplaySetPoint(playerPositionX+1, PL_POSITIONY+3);
-    DisplayDrawArea(playerPositionX, PL_POSITIONY, playerPositionX, PL_POSITIONY+2);
+    DisplayFillArea(playerPositionX, PL_POSITIONY, playerPositionX, PL_POSITIONY+2);
 }
 
 /***************************************************************************
@@ -66,6 +66,6 @@ void PL_moveRight()
     DisplaySetPoint(playerPositionX+6, PL_POSITIONY+5);
     DisplaySetPoint(playerPositionX+7, PL_POSITIONY+4);
     DisplaySetPoint(playerPositionX+10, PL_POSITIONY+3);
-    DisplayDrawArea(playerPositionX+11, PL_POSITIONY, playerPositionX+10, PL_POSITIONY+2);
+    DisplayFillArea(playerPositionX+11, PL_POSITIONY, playerPositionX+10, PL_POSITIONY+2);
     playerPositionX++;
 }

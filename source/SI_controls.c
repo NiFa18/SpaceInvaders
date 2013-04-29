@@ -101,11 +101,15 @@ void GC_shoot()
 void GC_movePlayer()
 {
   if(stateRegister.move & SI_MOVE_LEFT)
+  {
     PL_moveLeft();
   	printf("Move Player Left\n");
+  }
   else if(stateRegister.move & SI_MOVE_RIGHT)
+  {
     PL_moveRight();
     printf("Move Player Right\n");
+  }
 }
 
 /***************************************************************************
