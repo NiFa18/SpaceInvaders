@@ -32,11 +32,11 @@ void EN_drawEnemy(int x, int y)
     DisplayClrPoint(x+2, y+3);
     DisplayClrPoint(x+4, y+1);
     DisplayClrPoint(x+8, y+4);
-    DisplayClrLine(x, y+1, x+1, y+1);
-    DisplayClrLine(x, y+5, x+2, y+5);
-    DisplayClrLine(x+2, y, x+6, y);
-    DisplayClrLine(x+6, y+5, x+8, y+5);
-    DisplayClrLine(x+7, y+1, x+8, y+1);
+    DisplayClrArea(x, y+1, x+1, y+1);
+    DisplayClrArea(x, y+5, x+2, y+5);
+    DisplayClrArea(x+2, y, x+6, y);
+    DisplayClrArea(x+6, y+5, x+8, y+5);
+    DisplayClrArea(x+7, y+1, x+8, y+1);
 }
 
 /***************************************************************************
