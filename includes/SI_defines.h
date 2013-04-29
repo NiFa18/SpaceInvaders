@@ -36,6 +36,7 @@
 #define EN_SYMBOLWIDTH      9
 #define EN_SYMBOLHEIGHT     6
 #define EN_GAPWIDTH         6
+#define EN_GAPHEIGHT        2*EN_GAPWIDTH/3
 #define EN_LINEWIDTH        8*EN_SYMBOLWIDTH+7*EN_GAPWIDTH //93
 #define EN_LOCATIONWIDTH    48
 #define EN_TOPPOS           75
