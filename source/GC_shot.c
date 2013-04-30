@@ -48,4 +48,6 @@ void SH_moveShot(int shotNr)
 void SH_removeShot(int shotNr)
 {
     DisplayClrPoint(shotArray[shotNr].x, shotArray[shotNr].y);
+    shotArray[shotNr].x = 0;
+    shotArray[shotNr].y = 0;
 }
