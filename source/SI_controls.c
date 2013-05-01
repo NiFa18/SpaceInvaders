@@ -71,7 +71,7 @@ void GC_initGame()
   {
     for(j = EN_LOCATIONWIDTH; j > 0; j--)
       enemyArray[i-1].enemyLocations[j-1] = 0;
-    EN_drawEnemyLine(SI_ENEMYLINES-i);
+    EN_drawEnemyLine(i-1);
   }  
   
   //printf("GC_initGame(): Done\n");
@@ -144,12 +144,12 @@ void GC_updateGame()
           // Has Shot reached the enemyline j?
           if(shotArray[i].y >= EN_TOPPOS - (j+1)*EN_SYMBOLHEIGHT-j*EN_GAPHEIGHT)
           {
-              if(enemyArray[j].enemyLocations[(shotArray[i].x-EN_SIDEBORDER)/SI_PPAE] == 1)
+            if(enemyArray[j].enemyLocations[(shotArray[i].x-EN_SIDEBORDER)/SI_PPAE] == 1)
             { 
               EN_removeEnemy(j, (shotArray[i].x-EN_SIDEBORDER)/SI_PPAE);
               SH_removeShot(i);
+              break;
             }
-            break;
           }
         }
       }
