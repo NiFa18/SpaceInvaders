@@ -9,7 +9,7 @@
   
   Beschreibung: Test des Displays
 ********************************************************************************************/
-#if 1
+#if 0
 
 #include "target.h"
 #include "SI_defines.h"
