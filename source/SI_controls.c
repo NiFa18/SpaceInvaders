@@ -155,7 +155,7 @@ void GC_updateGame()
       }
     }  
   }
-  
+  stateRegister.update=0;
   //printf("GC_updateGame(): Done\n");
 }
 
@@ -166,4 +166,13 @@ void GC_updateGame()
 void GC_clrWeaponDelay(void)
 {
   stateRegister.shoot &= 0x3;
+}
+
+/***************************************************************************
+ *   \brief  sets update bit
+ *   \return void
+ ***************************************************************************/
+void GC_setUpdate(void)
+{
+  stateRegister.update = 1;
 }
