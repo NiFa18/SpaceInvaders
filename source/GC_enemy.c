@@ -67,7 +67,7 @@ void EN_drawEnemyLine(int rowNr)
 void EN_removeEnemy(int rowNr, int colNr)
 {
     //calculate absolute y position of enemy line
-    int absYPos = 70 - (rowNr*(EN_SYMBOLHEIGHT+EN_GAPWIDTH));
+    int absYPos = 70 - (rowNr*(EN_SYMBOLHEIGHT+EN_GAPHEIGHT));
     //if the enemy is to the very left
     int absXPos = EN_SIDEBORDER;
     int i;
