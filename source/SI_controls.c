@@ -144,7 +144,7 @@ void GC_updateGame()
           {
             if(enemyArray[j].enemyLocations[(shotArray[i].x-EN_SIDEBORDER)/EN_GAPWIDTH] == 1)
             { 
-              EN_removeEnemy(j, (shotArray[i].x-EN_SIDEBORDER)/EN_GAPWIDTH);
+              EN_removeEnemy(j, (shotArray[i].x-EN_SIDEBORDER)/SI_PPAE);
               SH_removeShot(i);
             }
             break;
