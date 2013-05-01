@@ -90,8 +90,8 @@ void GC_shoot()
     if((shotArray[i].x == 0)&&(shotArray[i].y == 0))
     {
       //Schuss in Mitte am oberen Ende des Players zeichnen
-      shotArray[i].x = playerPositionX + PL_SYMBOLWIDTH/2 + 1;
-      shotArray[i].y = PL_POSITIONY + PL_SYMBOLHEIGHT - 1;
+      shotArray[i].x = playerPositionX + PL_SYMBOLWIDTH/2;
+      shotArray[i].y = PL_POSITIONY + PL_SYMBOLHEIGHT;
       SH_drawShot(i);
       //printf("SH_drawShot(shotArray[%d].x = %d, shotArray[%d].y = %d\n", i, shotArray[i].x, i, shotArray[i].y);
       break;
