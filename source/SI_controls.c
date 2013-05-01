@@ -125,7 +125,7 @@ void GC_updateGame()
 {
   int i, j;
   //Process each shot
-  for(i = SI_MAXSHOTS; i > 0; i--)
+  for(i = SI_MAXSHOTS-1; i >= 0; i--)
   {
     if((shotArray[i].x != 0)||(shotArray[i].y != 0))
     {
@@ -137,12 +137,12 @@ void GC_updateGame()
       printf("Has Shot reached %d?\n", EN_TOPPOS - SI_ENEMYLINES*EN_SYMBOLHEIGHT-(SI_ENEMYLINES-1)*EN_GAPHEIGHT);
       if(shotArray[i].y >= EN_TOPPOS - SI_ENEMYLINES*EN_SYMBOLHEIGHT-(SI_ENEMYLINES-1)*EN_GAPHEIGHT)
       {
-        for(j = 0; j < SI_ENEMYLINES; j--)
+        for(j = 0; j < SI_ENEMYLINES; j++)
         {
           // Has Shot reached the enemyline j?
           if(shotArray[i].y >= EN_TOPPOS - (j+1)*EN_SYMBOLHEIGHT-j*EN_GAPHEIGHT)
           {
-            if(enemyArray[j].enemyLocations[(shotArray[i].x-EN_SIDEBORDER)/EN_GAPWIDTH] == 1)
+              if(enemyArray[j].enemyLocations[(shotArray[i].x-EN_SIDEBORDER)/SI_PPAE] == 1)
             { 
               EN_removeEnemy(j, (shotArray[i].x-EN_SIDEBORDER)/SI_PPAE);
               SH_removeShot(i);

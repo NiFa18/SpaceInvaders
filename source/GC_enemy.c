@@ -69,7 +69,7 @@ void EN_removeEnemy(int rowNr, int colNr)
     //calculate absolute y position of enemy line
     int absYPos = 70 - (rowNr*(EN_SYMBOLHEIGHT+EN_GAPWIDTH));
     //if the enemy is to the very left
-    int absXPos = 8;
+    int absXPos = EN_SIDEBORDER;
     int i;
     
     //deletes enemy part at shot impact (if there is one)
