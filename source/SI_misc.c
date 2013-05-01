@@ -24,7 +24,7 @@ extern SI_stateReg stateRegister;
  *   \param int: time in ms
  *   \return void
  ***************************************************************************/
-inline static void DelayMs (int ms)
+void DelayMs (int ms) //inline static
 {
   int i;
   if((SYNCR & 0xff00) == 0x7f00)      //CPU runs @ 16MHz

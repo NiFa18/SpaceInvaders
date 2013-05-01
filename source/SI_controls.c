@@ -25,6 +25,7 @@
 #include "Types.h"
 #include "SI_controls.h"
 #include "SI_defines.h"
+#include "SI_misc.h"
 #include "GC_player.h"
 #include "GC_shot.h"
 #include "GC_enemy.h"
@@ -46,6 +47,7 @@ void GC_initGame()
   
   // Initialize Display
   DisplayInit();
+  DelayMs(200);
   
   // Initialize StateRegister
   stateRegister.restart = 0;

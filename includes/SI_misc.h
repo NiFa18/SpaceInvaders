@@ -10,14 +10,14 @@
  Beschreibung: Allgemein verwendete Funktionen
  ********************************************************************************************/
 
-#ifndef __SI_INTERRUPTS_H
-#define __SI_INTERRUPTS_H
+#ifndef __SI_MISC_H
+#define __SI_MISC_H
 
 #include "SI_defines.h"
 
 // --- Function Prototypes
 
-inline static void DelayMs (int ms);
+void DelayMs (int ms);	//inline static
 int initInterrupt(void);
 
-#endif /* #ifndef __SI_INTERRUPTS_H */
+#endif /* #ifndef __SI_MISC_H */
