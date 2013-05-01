@@ -9,7 +9,7 @@
   
   Beschreibung: Test des Displays
 ********************************************************************************************/
-#if 0
+#if 1
 
 #include "target.h"
 #include "SI_defines.h"
@@ -37,9 +37,12 @@ void main (void)
 {
 	DisplayInit();
     EN_drawEnemyLine(0);
-    EN_drawEnemyLine(1);
-    EN_drawEnemyLine(2);
-    EN_drawEnemyLine(3);
+	EN_removeEnemy(0,6);
+	EN_removeEnemy(0,12);
+	EN_removeEnemy(0,21);
+	EN_removeEnemy(0,25);
+	EN_removeEnemy(0,26);
+	EN_removeEnemy(0,28);
     DisplayDrawRect(4,4,155,9);
     DisplayDrawRect(8,12,151,75);
 }

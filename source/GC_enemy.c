@@ -48,14 +48,14 @@ void EN_drawEnemyLine(int rowNr)
 {
     int n;
     //calculate absolute y position of enemy line
-    int absYPos = 70 - (rowNr*(EN_SYMBOLHEIGHT+2*EN_GAPWIDTH/3));
+    int absYPos = 70 - (rowNr*(EN_SYMBOLHEIGHT+EN_GAPHEIGHT));
     
     for (n=0; n < 8; n++)
     {
         //sets entries in enemy array according to horizontal enemy position
+        enemyArray[rowNr].enemyLocations[5+5*n]=1;
         enemyArray[rowNr].enemyLocations[6+5*n]=1;
-        enemyArray[rowNr].enemyLocations[7+5*n]=1;
-        enemyArray[rowNr].enemyLocations[8+5*n]=1;        
+        enemyArray[rowNr].enemyLocations[7+5*n]=1;        
         EN_drawEnemy(EN_INITIALXPOSITION+n*(EN_SYMBOLWIDTH+EN_GAPWIDTH),absYPos);
     }
 }
@@ -67,7 +67,7 @@ void EN_drawEnemyLine(int rowNr)
 void EN_removeEnemy(int rowNr, int colNr)
 {
     //calculate absolute y position of enemy line
-    int absYPos = 70 - (rowNr*(EN_SYMBOLHEIGHT+2*EN_GAPWIDTH/3));
+    int absYPos = 70 - (rowNr*(EN_SYMBOLHEIGHT+EN_GAPWIDTH));
     //if the enemy is to the very left
     int absXPos = 8;
     int i;
