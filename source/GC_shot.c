@@ -36,9 +36,16 @@ void SH_drawShot(int shotNr)
  ***************************************************************************/
 void SH_moveShot(int shotNr)
 {
-    DisplayClrPoint(shotArray[shotNr].x, shotArray[shotNr].y);
-    DisplaySetPoint(shotArray[shotNr].x, shotArray[shotNr].y+2);
-    shotArray[shotNr].y += 1;
+    if(shotArray[shotNr].y > SI_DISPHEIGHT-1)
+    {
+        SH_removeShot(shotNr);
+    }
+    else
+    {
+        DisplayClrPoint(shotArray[shotNr].x, shotArray[shotNr].y);
+        DisplaySetPoint(shotArray[shotNr].x, shotArray[shotNr].y+2);
+        shotArray[shotNr].y +=1;
+    }
 }
 
 /***************************************************************************

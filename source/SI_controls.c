@@ -61,7 +61,7 @@ void GC_initGame()
   
   //Initialize Player
   playerPositionX = SI_DISPWIDTH/2 - PL_SYMBOLWIDTH/2;
-  printf("playerPositionX = %d\n",playerPositionX);
+  //printf("playerPositionX = %d\n",playerPositionX);
   PL_drawPlayer(playerPositionX);
   
   //initialize enemy Line
@@ -72,7 +72,7 @@ void GC_initGame()
     EN_drawEnemyLine(SI_ENEMYLINES-i);
   }  
   
-  printf("GC_initGame(): Done\n");
+  //printf("GC_initGame(): Done\n");
 }
 
 /***************************************************************************
@@ -91,12 +91,12 @@ void GC_shoot()
       shotArray[i].x = playerPositionX + PL_SYMBOLWIDTH/2 + 1;
       shotArray[i].y = PL_POSITIONY + PL_SYMBOLHEIGHT - 1;
       SH_drawShot(i);
-      printf("SH_drawShot(shotArray[%d].x = %d, shotArray[%d].y = %d\n", i, shotArray[i].x, i, shotArray[i].y);
+      //printf("SH_drawShot(shotArray[%d].x = %d, shotArray[%d].y = %d\n", i, shotArray[i].x, i, shotArray[i].y);
       break;
     }
   }
   
-  printf("GC_shoot(): Done\n");
+  //printf("GC_shoot(): Done\n");
 }
 
 /***************************************************************************
@@ -108,12 +108,12 @@ void GC_movePlayer()
   if(stateRegister.move & SI_MOVE_LEFT)
   {
     PL_moveLeft();
-  	printf("Move Player Left\n");
+  	//printf("Move Player Left\n");
   }
   else if(stateRegister.move & SI_MOVE_RIGHT)
   {
     PL_moveRight();
-    printf("Move Player Right\n");
+    //printf("Move Player Right\n");
   }
 }
 
@@ -131,10 +131,10 @@ void GC_updateGame()
     {
       //Move all shot up
       SH_moveShot(i);
-      printf("SH_moveShot(shotArray[%d].x = %d, shotArray[%d].y = %d) up\n", i, shotArray[i].x, i, shotArray[i].y);
+      //printf("SH_moveShot(shotArray[%d].x = %d, shotArray[%d].y = %d) up\n", i, shotArray[i].x, i, shotArray[i].y);
       
       //Check if Shot hits enemy & destroy enemy
-      printf("Has Shot reached %d?\n", EN_TOPPOS - SI_ENEMYLINES*EN_SYMBOLHEIGHT-(SI_ENEMYLINES-1)*EN_GAPHEIGHT);
+      //printf("Has Shot reached %d?\n", EN_TOPPOS - SI_ENEMYLINES*EN_SYMBOLHEIGHT-(SI_ENEMYLINES-1)*EN_GAPHEIGHT);
       if(shotArray[i].y >= EN_TOPPOS - SI_ENEMYLINES*EN_SYMBOLHEIGHT-(SI_ENEMYLINES-1)*EN_GAPHEIGHT)
       {
         for(j = 0; j < SI_ENEMYLINES; j++)
@@ -154,7 +154,7 @@ void GC_updateGame()
     }  
   }
   
-  printf("GC_updateGame(): Done\n");
+  //printf("GC_updateGame(): Done\n");
 }
 
 /***************************************************************************
