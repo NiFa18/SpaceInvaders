@@ -14,7 +14,7 @@
   Beschreibung: Hauptprogramm zu SpaceInvadors
 ********************************************************************************************/
 
-#if 0
+#if 1
 
 #include "target.h"
 #include "SoftTimer.h"
@@ -44,7 +44,7 @@ void main (void)
   GC_initGame();
   
   // Spiel aktualisieren
-  timerHandlerArray[0] = ST_Create(INTERVAL, GC_updateGame);
+  timerHandlerArray[0] = ST_Create(INTERVAL, GC_setUpdate);
   timerHandlerArray[0] = ST_Start(timerHandlerArray[0], SI_REFRESHTIME);
   // Timer fuer Schuss-Verzoegerung
   timerHandlerArray[1] = ST_Create(ONESHOT, GC_clrWeaponDelay);
@@ -59,6 +59,11 @@ void main (void)
     if(stateRegister.restart)
     {
       GC_initGame();
+    }
+    
+    if(stateRegister.update)
+    {
+      GC_updateGame();
     }
     
     /*
@@ -86,6 +91,5 @@ void main (void)
     }
  	}
 }
-
 
 #endif

@@ -19,6 +19,7 @@ void GC_initGame();     //initializes/restarts game (display, player position, e
 void GC_movePlayer();   //moves player on screen left or right
 void GC_updateGame();   //updates game information (movement of shot, destruction of enemies,...)
 void GC_clrWeaponDelay(); //clears WeaponDelay bit
+void GC_setUpdate();	//sets update bit
  
 
 #endif /* #ifndef __CONTROLS_H */

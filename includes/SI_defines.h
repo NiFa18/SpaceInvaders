@@ -52,6 +52,7 @@ typedef struct {
     uint8_t restart : 1;		/* Neustart = true */
     uint8_t shoot   : 3;		/* WeapenDelay = 1##; NeuerSchuss = #1#; Schuss unterwegs = ##1 */
     uint8_t move    : 2;		/* 10 = left; 01 = right; 00 = don't move  */
+	uint8_t update	: 1;		/* 1 = update game; 0 = dont update game*/
 } SI_stateReg;
 
 typedef struct {
