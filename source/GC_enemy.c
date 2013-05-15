@@ -20,6 +20,7 @@
 //global variables
 
 extern SI_enemyLine enemyArray[SI_ENEMYLINES];
+extern SI_stateReg stateRegister;
 
 /***************************************************************************
  *   \brief draws enemy at position x,y
@@ -71,6 +72,8 @@ void EN_removeEnemy(int rowNr, int colNr)
     //if the enemy is to the very left
     int absXPos = EN_SIDEBORDER;
     int i;
+    int j;
+    int finished=1;
     
     //deletes enemy part at shot impact (if there is one)
     if ( !(enemyArray[rowNr].enemyLocations[colNr]==0))
@@ -108,5 +111,18 @@ void EN_removeEnemy(int rowNr, int colNr)
         }
         
     }
+    
+    //check if all enemies are removed
+    for (i=0; i < SI_ENEMYLINES; i++)
+    {
+        for (j=0; j < EN_LOCATIONWIDTH; j++)
+        {
+            if (enemyArray[i].enemyLocations[j]==1)
+            {
+                finished = 0;
+            }
+        }
+    }
+    stateRegister.finished = finished;
 
 }

@@ -18,7 +18,7 @@
 
 #define SI_MOVE_LEFT        0x02
 #define SI_MOVE_RIGHT       0x01
-#define SI_DELAYWEAPON      200   //0.2s
+#define SI_DELAYWEAPON      500   //0.2s
 #define SI_REFRESHTIME      50   //0.05s
 #define SI_MAXSHOTS         10
 #define SI_ENEMYLINES       3
@@ -52,7 +52,8 @@ typedef struct {
     uint8_t restart : 1;		/* Neustart = true */
     uint8_t shoot   : 3;		/* WeapenDelay = 1##; NeuerSchuss = #1#; Schuss unterwegs = ##1 */
     uint8_t move    : 2;		/* 10 = left; 01 = right; 00 = don't move  */
-	uint8_t update	: 1;		/* 1 = update game; 0 = dont update game*/
+	uint8_t update	: 1;        /* 1 = update game; 0 = dont update game*/
+    uint8_t finished: 1;        /* 1 = show game ending screen */
 } SI_stateReg;
 
 typedef struct {

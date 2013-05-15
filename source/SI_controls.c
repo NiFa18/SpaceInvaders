@@ -53,6 +53,7 @@ void GC_initGame()
   stateRegister.restart = 0;
   stateRegister.shoot = 0;
   stateRegister.move = 0;
+  stateRegister.finished = 0;
   
   //Initialize ShotArray
   for(i = SI_MAXSHOTS; i > 0 ; i--)
