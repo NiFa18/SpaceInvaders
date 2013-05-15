@@ -42,15 +42,18 @@ void PL_drawPlayer(int x)
  ***************************************************************************/
 void PL_moveLeft()
 {
-    playerPositionX--;
-    DisplayClrArea(playerPositionX+11, PL_POSITIONY, playerPositionX+11, PL_POSITIONY+2);
-    DisplayClrPoint(playerPositionX+10, PL_POSITIONY+3);
-    DisplayClrPoint(playerPositionX+7, PL_POSITIONY+4);
-    DisplayClrPoint(playerPositionX+6, PL_POSITIONY+5);
-    DisplaySetPoint(playerPositionX+5, PL_POSITIONY+5);
-    DisplaySetPoint(playerPositionX+4, PL_POSITIONY+4);
-    DisplaySetPoint(playerPositionX+1, PL_POSITIONY+3);
-    DisplayFillArea(playerPositionX, PL_POSITIONY, playerPositionX, PL_POSITIONY+2);
+    if (playerPositionX > 4)
+    {
+        playerPositionX--;
+        DisplayClrArea(playerPositionX+11, PL_POSITIONY, playerPositionX+11, PL_POSITIONY+2);
+        DisplayClrPoint(playerPositionX+10, PL_POSITIONY+3);
+        DisplayClrPoint(playerPositionX+7, PL_POSITIONY+4);
+        DisplayClrPoint(playerPositionX+6, PL_POSITIONY+5);
+        DisplaySetPoint(playerPositionX+5, PL_POSITIONY+5);
+        DisplaySetPoint(playerPositionX+4, PL_POSITIONY+4);
+        DisplaySetPoint(playerPositionX+1, PL_POSITIONY+3);
+        DisplayFillArea(playerPositionX, PL_POSITIONY, playerPositionX, PL_POSITIONY+2);
+    }
 }
 
 /***************************************************************************
@@ -59,13 +62,16 @@ void PL_moveLeft()
  ***************************************************************************/
 void PL_moveRight()
 {
-    DisplayClrArea(playerPositionX, PL_POSITIONY, playerPositionX, PL_POSITIONY+2);
-    DisplayClrPoint(playerPositionX+1, PL_POSITIONY+3);
-    DisplayClrPoint(playerPositionX+4, PL_POSITIONY+4);
-    DisplayClrPoint(playerPositionX+5, PL_POSITIONY+5);
-    DisplaySetPoint(playerPositionX+6, PL_POSITIONY+5);
-    DisplaySetPoint(playerPositionX+7, PL_POSITIONY+4);
-    DisplaySetPoint(playerPositionX+10, PL_POSITIONY+3);
-    DisplayFillArea(playerPositionX+11, PL_POSITIONY, playerPositionX+11, PL_POSITIONY+2);
-    playerPositionX++;
+    if (playerPositionX < 145)
+    {
+        DisplayClrArea(playerPositionX, PL_POSITIONY, playerPositionX, PL_POSITIONY+2);
+        DisplayClrPoint(playerPositionX+1, PL_POSITIONY+3);
+        DisplayClrPoint(playerPositionX+4, PL_POSITIONY+4);
+        DisplayClrPoint(playerPositionX+5, PL_POSITIONY+5);
+        DisplaySetPoint(playerPositionX+6, PL_POSITIONY+5);
+        DisplaySetPoint(playerPositionX+7, PL_POSITIONY+4);
+        DisplaySetPoint(playerPositionX+10, PL_POSITIONY+3);
+        DisplayFillArea(playerPositionX+11, PL_POSITIONY, playerPositionX+11, PL_POSITIONY+2);
+        playerPositionX++;
+    }
 }
