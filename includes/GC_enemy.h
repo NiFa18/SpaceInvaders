@@ -7,7 +7,7 @@
  Last Update : 26.04.2013 Fabian Niedermann
  Target      : MEGA332, MetroTRK and CodeWarrior
  
- Beschreibung: Shot Control Functions blajflödsa
+ Beschreibung: Shot Control Functions blajffmkdljkleknlödsa
  ********************************************************************************************/
 #ifndef _GC_enemy_h
 #define _GC_enemy_h
