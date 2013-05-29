@@ -73,6 +73,5 @@ void PL_moveRight()
         DisplaySetPoint(playerPositionX+10, PL_POSITIONY+3);
         DisplayFillArea(playerPositionX+11, PL_POSITIONY, playerPositionX+11, PL_POSITIONY+2);
         playerPositionX++;
-        fdjka;
     }
 }

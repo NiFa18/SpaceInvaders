@@ -14,9 +14,8 @@
 
 // ---- function declarations
 
-void PL_drawPlayer(int y);      //draws player at x coordinate
+void PL_drawPlayer(int x);      //draws player at x coordinate
 void PL_moveLeft();             //moves player 1 px to the left
 void PL_moveRight();            //moves player 1 px to the right
-void test();
 
 #endif
